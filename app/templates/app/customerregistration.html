@@ -1,0 +1,86 @@
+
+{% comment %} {% extends "app\index.html" %} {% endcomment %}
+
+{% comment %} {% block content %} 
+
+{% load crispy_forms_tags %}         
+
+<!--Register--> 
+<div class="container py-5">
+	<h1>Register</h1>
+	<form method="POST">
+		{% csrf_token %}
+		{{ register_form|crispy }}                    
+		<button class="btn btn-primary" type="submit">Register</button>
+	</form>
+	<p class="text-center">If you already have an account, <a href="/login">login</a> instead.</p>
+</div>
+
+{% endblock %} {% endcomment %}
+
+
+
+{% comment %} {% extends 'app\index.html' %} {% endcomment %}
+{% comment %} {% load static %}
+{% block title %}Customer Registation{% endblock title %}
+{% block main-container %} {% endcomment %}
+    {% comment %} <div class="container">
+        <div class="row my-3">
+            <div class="col-sm-6 offset-sm-3">
+                <h3>Customer Registration</h3>
+                <hr>
+
+                <form action="" method="post" novalidate class="shadow p-5">
+                    {% csrf_token %}
+                    {% for fm in form %}
+                        {{ fm.lebel_tag }} {{ fm }} <small class="text-danger">{{fm.errors|striptags}}</small>
+                        <br>
+                    {% endfor %}
+                    <input type="submit" value="Submit" class="btn btn-primary"> <br>
+
+                    <div class="text-center text-primary fw-bold">
+                        <small>Existing User ? <a href="{% url 'login' %}" class="text-danger">Login Now</a> </small>
+                    </div>
+
+                    {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <p class="alert alert_danger my-3">{{error}}</p>
+                        <br>
+                    {% endfor %}
+
+
+
+                </form>
+            </div>
+        </div>
+    </div> {% endcomment %}
+{% comment %} {% endblock main-container %} {% endcomment %}
+
+
+<Html>  
+    <head>   
+    <title>  
+    Registration Page  
+    </title>  
+    </head>  
+    <body bgcolor="Lightskyblue">  
+    <br>  
+    <br>  
+    <form>  
+      
+    <label> Username </label>         
+    <input type="text" name="username" size="15"/> <br> <br>  
+ 
+    Email:  
+    <input type="email" id="email" name="email"/> <br>    
+    <br> <br>  
+    Password:  
+    <input type="Password" id="pass" name="pass"> <br>   
+    <br> <br>  
+    Re-type password:  
+    <input type="Password" id="repass" name="repass"> <br> <br>  
+    <input type="submit" value="Submit" class="btn btn-primary">
+    </form>  
+    </body>  
+    </html>
+
